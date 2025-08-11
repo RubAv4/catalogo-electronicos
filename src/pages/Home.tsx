@@ -318,6 +318,63 @@ export default function Home() {
       ],
       contacto: "51978394103",
     },
+    {
+      id: 19,
+      nombre: "Módulo BMS 2S 8.4v 20A Balanceador",
+      categoria: "BMS",
+      descripcion: "Módulo para carga de baterías de litio",
+      img: "https://m.media-amazon.com/images/I/410ORr+aydL._UF1000,1000_QL80_.jpg",
+      imagenes: ["https://battery101.co.uk/cdn/shop/products/2S_20A_7-4V_8-4V_li-ion_bms_balance_protection_board_wiring_1200x.jpg?v=1673705587"],
+      caracteristicas: [
+        "Corriente máxima de funcionamiento: 13 A",
+        "Corriente máxima de limitación: 20 A.",
+        "Voltaje de alimentación: 8,4-9 V",
+      ],
+      contacto: "51978394103",
+    },
+    {
+      id: 20,
+      nombre: "Módulo BMS 3S 12V 40A Balanceador",
+      categoria: "BMS",
+      descripcion: "Módulo para carga de baterías de litio",
+      img: "https://cdn.webshopapp.com/shops/346407/files/420565714/1500x1500x2/otronic-bms-3s-protection-circuit-with-balancing-f.jpg",
+      imagenes: ["https://ssdielect.com/16416-medium_default/bms-3s-40a-balanced.jpg"],
+      caracteristicas: [
+        "Potencia de disipación: 40 A.",
+        "Voltaje de alimentación: 12.6 V.",
+        "Corriente continua máxima: 20 A",
+      ],
+      contacto: "51978394103",
+    },
+    {
+      id: 21,
+      nombre: "Módulo BMS 4S 16.8V 40A Balanceador",
+      categoria: "BMS",
+      descripcion: "Módulo para carga de baterías de litio",
+      img: "https://ae01.alicdn.com/kf/Sdbbc35f4ba5b44bbaf08449f752a8f32o.jpg_960x960.jpg",
+      imagenes: ["https://cricklewoodelectronics.com/images/D/BMS4Sa-01.jpg"],
+      caracteristicas: [
+        "Corriente de descarga continua: 40 A máximo",
+        "Corriente de carga continua: hasta 20A",
+        "Voltaje de carga: 16,8 V a 18,1 V",
+      ],
+      contacto: "51978394103",
+    },
+    {
+      id: 22,
+      nombre: "Módulo BMS 5S 21V 100A Balanceador",
+      categoria: "BMS",
+      descripcion: "Módulo para carga de baterías de litio",
+      img: "https://battery101.co.uk/cdn/shop/products/5s_100a_li_ion_main.jpg?v=1669066120",
+      imagenes: ["https://battery101.co.uk/cdn/shop/products/5s_100a_li_ion_wiring_diagram_1200x.jpg?v=1669066119"],
+      caracteristicas: [
+        "Voltaje máximo: 21 V",
+        "Corriente de protección contra sobrecarga: 100 A",
+        "Corriente de protección contra sobredescarga: 100 A",
+        "Balance de amperaje (corriente): 60 mA.",
+      ],
+      contacto: "51978394103",
+    },
   ];
 
   const filtrados = useMemo(() => {
