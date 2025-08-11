@@ -99,7 +99,7 @@ export default function Home() {
         "Módulo de preamplificación/temporización basado en NE555 para experimentación.",
       img: "https://m.media-amazon.com/images/I/61e7vQDXU2L._UF1000,1000_QL80_.jpg",
       imagenes: [
-        "https://down-th.img.susercontent.com/file/sg-11134201-7rdwk-lzvjsm2ye0dw8a"
+        "https://down-th.img.susercontent.com/file/sg-11134201-7rdwk-lzvjsm2ye0dw8a",
       ],
       caracteristicas: [
         "Basado en NE555",
@@ -235,7 +235,9 @@ export default function Home() {
       categoria: "Cargadores",
       descripcion: "Módulo de carga Li-Ion 1 celda con USB-C.",
       img: "https://naylampmechatronics.com/3969-superlarge_default/cargador-de-bateria-litio-tp4056-con-proteccion-usb-c.jpg",
-      imagenes:["https://m.media-amazon.com/images/S/aplus-media-library-service-media/9e28d22c-01e9-40ad-8747-d9dcfa44dba9.__CR0,0,970,600_PT0_SX970_V1___.jpg"],
+      imagenes: [
+        "https://m.media-amazon.com/images/S/aplus-media-library-service-media/9e28d22c-01e9-40ad-8747-d9dcfa44dba9.__CR0,0,970,600_PT0_SX970_V1___.jpg",
+      ],
       caracteristicas: [
         "TP4056 con USB-C",
         "Corriente típica 1A",
@@ -250,7 +252,9 @@ export default function Home() {
       categoria: "Amplificadores",
       descripcion: "Amplificador 2.1 con subwoofer integrado.",
       img: "https://m.media-amazon.com/images/I/516hHka3yWL._UF894,1000_QL80_.jpg",
-      imagenes:["https://ae01.alicdn.com/kf/Sb8d8c78e85c64ccaad1711e6492694090.jpg_960x960.jpg"],
+      imagenes: [
+        "https://ae01.alicdn.com/kf/Sb8d8c78e85c64ccaad1711e6492694090.jpg_960x960.jpg",
+      ],
       caracteristicas: [
         "Versión compatible con Bluetooth: 5.1",
         "Número de canales: 2.1 canales (canales izquierdo y derecho + subwoofer) ",
@@ -267,7 +271,9 @@ export default function Home() {
       categoria: "Conectores",
       descripcion: "2 pines",
       img: "https://ae01.alicdn.com/kf/S19a4b4bd640345eb9893062544892d36r.jpg_640x640q90.jpg",
-      imagenes:["https://ae01.alicdn.com/kf/S1fb2253df66a4ddea8b8e88e08757272p.jpg"],
+      imagenes: [
+        "https://ae01.alicdn.com/kf/S1fb2253df66a4ddea8b8e88e08757272p.jpg",
+      ],
       caracteristicas: [
         "Material: Resistente al calor",
         "Tipo de producto: Conector de enchufe tipo C hembra ",
@@ -284,7 +290,9 @@ export default function Home() {
       categoria: "BMS",
       descripcion: "Módulo para carga de baterías de litio",
       img: "https://epartners.co.nz/cdn/shop/products/Screenshot_24__10__S4QLZTR9R85E.png?v=1674007022&width=1080",
-      imagenes:["https://ae01.alicdn.com/kf/Sdb677ac54cc9439dbc422672fed0d4a10.jpg"],
+      imagenes: [
+        "https://ae01.alicdn.com/kf/Sdb677ac54cc9439dbc422672fed0d4a10.jpg",
+      ],
       caracteristicas: [
         "Tensión de detección de sobrecarga: 4.25 ± 0.05 V",
         "Tensión de liberación de sobrecarga: 4.23 ± 0.05 V",
@@ -295,13 +303,13 @@ export default function Home() {
       ],
       contacto: "51978394103",
     },
-     {
+    {
       id: 18,
       nombre: "Módulo BMS 3S 12V 18650 10A",
       categoria: "BMS",
       descripcion: "Módulo para carga de baterías de litio",
       img: "https://funduinoshop.com/media/image/c1/67/6e/10A-BMS-HX-3S-FL-10A-A-Laderegler-fuer-3x-Li-ion-Lithiumbatterie-top_600x600@2x.png",
-      imagenes:["https://m.media-amazon.com/images/I/71VDoW+Cm0L.jpg"],
+      imagenes: ["https://m.media-amazon.com/images/I/71VDoW+Cm0L.jpg"],
       caracteristicas: [
         "Temperatura de funcionamiento: -40-+85 °C",
         "Potencia de disipación: 10 A.",
@@ -331,11 +339,18 @@ export default function Home() {
           alt="banner"
           className="w-full h-96 object-cover"
         />
-        <div className="absolute top-1/3 left-10 bg-white/95 border-2 border-black rounded-2xl px-6 py-4 shadow-md">
-          <h2 className="text-4xl font-bold text-gray-900">
+        <div
+          className="
+    absolute top-6 left-1/2 -translate-x-1/2
+    w-[90%] max-w-md text-center
+    bg-white/95 border-2 border-black rounded-2xl px-4 py-3 shadow-md
+    md:top-1/3 md:left-10 md:translate-x-0 md:w-auto md:max-w-none md:text-left md:px-6 md:py-4
+  "
+        >
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
             Todo para tu día a día
           </h2>
-          <p className="mt-2 text-lg text-gray-700">
+          <p className="mt-2 text-sm sm:text-base md:text-lg text-gray-700">
             Componentes electrónicos seleccionados para tus proyectos.
           </p>
         </div>
@@ -366,7 +381,11 @@ export default function Home() {
             key={c}
             onClick={() => setCat(c)}
             className={`px-4 py-1 rounded-full border transition
-              ${cat === c ? "bg-black text-white border-black" : "bg-white hover:bg-gray-100 border-gray-300"}`}
+              ${
+                cat === c
+                  ? "bg-black text-white border-black"
+                  : "bg-white hover:bg-gray-100 border-gray-300"
+              }`}
           >
             {c}
           </button>
