@@ -20,7 +20,7 @@ export default function Header({ active, onProductsClick, onAboutClick }: Header
         {/* Marca */}
         <div className="flex items-center gap-3">
           <div className="h-9 w-9 rounded-full bg-white/10 grid place-items-center text-lg">⚙️</div>
-          <span className="font-semibold tracking-wide">Ruberth Avalos</span>
+          <span className="font-semibold tracking-wide">Electronica DIY</span>
         </div>
 
         {/* Desktop nav */}
