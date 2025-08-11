@@ -1,4 +1,4 @@
-import React from "react";
+
 import type { Producto } from "../types";
 
 type Props = {
