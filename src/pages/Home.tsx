@@ -414,7 +414,7 @@ export default function Home() {
       imagenes: ["https://ae01.alicdn.com/kf/Seb95019bc2c1480196797800f8c635afh.jpg"],
       caracteristicas: [
         "Min. Tamaño del agujero: 1.0 mm",
-        "PCB Board Breadboard: 2x8 3x7 4x6 5x7 7x9cm",
+        "PCB Board Breadboard: 2x8 3x7 4x6 5x7cm",
         "Espesor:1.6mm",
       ],
       contacto: "51978394103",
