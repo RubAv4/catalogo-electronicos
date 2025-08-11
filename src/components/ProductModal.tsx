@@ -9,6 +9,11 @@ export default function ProductModal({
   onClose: () => void;
 }) {
   const [idx, setIdx] = useState(0);
+  
+  useEffect(() => {
+  // cuando cambia el producto, vuelve a la imagen 0
+  setIdx(0);
+}, [producto?.id]);
 
   useEffect(() => {
     // bloquear scroll del body mientras el modal está abierto
