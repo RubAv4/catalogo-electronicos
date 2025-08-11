@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { Producto } from "../types"; 
+import type { Producto } from "../types";
 
 export default function ProductModal({
   producto,
@@ -9,14 +9,15 @@ export default function ProductModal({
   onClose: () => void;
 }) {
   const [idx, setIdx] = useState(0);
-  
-  useEffect(() => {
-  // cuando cambia el producto, vuelve a la imagen 0
-  setIdx(0);
-}, [producto?.id]);
+  const [origin, setOrigin] = useState<string>("center"); // para pan del zoom
 
+  // siempre iniciar en la 1ra imagen al cambiar de producto
   useEffect(() => {
-    // bloquear scroll del body mientras el modal está abierto
+    setIdx(0);
+  }, [producto?.id]);
+
+  // bloquear scroll del body mientras el modal está abierto
+  useEffect(() => {
     if (producto) {
       const prev = document.body.style.overflow;
       document.body.style.overflow = "hidden";
@@ -26,6 +27,7 @@ export default function ProductModal({
     }
   }, [producto]);
 
+  // cerrar con ESC
   useEffect(() => {
     const onEsc = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", onEsc);
@@ -64,13 +66,31 @@ export default function ProductModal({
         <div className="grid md:grid-cols-2 gap-4 p-5">
           {/* Galería */}
           <div>
-            <div className="bg-gray-100 rounded-xl overflow-hidden">
+            {/* Imagen principal: siempre contenida + zoom al hover */}
+            <div
+              className="group relative bg-gray-100 rounded-xl overflow-hidden
+             h-[min(60vh,22rem)] md:h-[min(65vh,24rem)] select-none"
+              onMouseMove={(e) => {
+                const r = (
+                  e.currentTarget as HTMLDivElement
+                ).getBoundingClientRect();
+                const x = ((e.clientX - r.left) / r.width) * 100;
+                const y = ((e.clientY - r.top) / r.height) * 100;
+                setOrigin(`${x}% ${y}%`);
+              }}
+            >
               <img
                 src={allImages[idx]}
                 alt={`Imagen ${idx + 1} de ${producto.nombre}`}
-                className="w-full h-64 object-cover"
+                className="absolute inset-0 w-full h-full object-contain
+               transition-transform duration-300 ease-out will-change-transform
+               group-hover:scale-[1.9] md:group-hover:scale-[2.1] cursor-zoom-in"
+                style={{ transformOrigin: origin }}
+                draggable={false}
               />
             </div>
+
+            {/* Miniaturas */}
             {allImages.length > 1 && (
               <div className="mt-3 grid grid-cols-5 gap-2">
                 {allImages.map((src, i) => (
@@ -85,7 +105,8 @@ export default function ProductModal({
                     <img
                       src={src}
                       alt={`${producto.nombre} ${i + 1}`}
-                      className="w-full h-16 object-cover"
+                      className="w-full h-16 object-contain bg-white"
+                      draggable={false}
                     />
                   </button>
                 ))}
@@ -123,9 +144,9 @@ export default function ProductModal({
           </div>
         </div>
 
-        {/* Footer */}
+        {/* Footer modal */}
         <div className="px-5 pb-5 text-xs text-gray-500">
-          * Las especificaciones pueden variar según el lote/modelo.
+          {/* texto del footer del modal */}
         </div>
       </div>
     </div>

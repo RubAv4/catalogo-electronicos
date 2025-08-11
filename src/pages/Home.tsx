@@ -208,6 +208,9 @@ export default function Home() {
       categoria: "Módulos",
       descripcion: "Módulo reproductor con FM/USB/BT.",
       img: "https://http2.mlstatic.com/D_NQ_NP_761155-MCO81009012250_122024-O.webp",
+      imagenes: [
+        "https://m.media-amazon.com/images/I/51J32mrE1IL._UF350,350_QL80_.jpg",
+      ],
       caracteristicas: [
         "BT + FM + USB",
         "8V–12V DC",
@@ -222,7 +225,12 @@ export default function Home() {
       nombre: "Amplificador estéreo TPA3118 con bluetooth",
       categoria: "Amplificadores",
       descripcion: "Versión estéreo del TPA3118.",
-      img: "https://m.media-amazon.com/images/I/71JMgka-HrL.jpg",
+      img: "https://ae01.alicdn.com/kf/S4622e699e83e403991bc9f61da759283V.jpg_640x640q90.jpg",
+      imagenes: [
+        "https://m.media-amazon.com/images/I/616tCskn6+L._UF894,1000_QL80_.jpg",
+        "https://ae01.alicdn.com/kf/HTB1VWh9LYrpK1RjSZTEq6AWAVXaN/XH-M314-TPA3118-2x45W-12V-24V-Stereo-audio-Bluetooth-Digital-power-Amplifier-Board-amplificador.jpg_.webp",
+        "https://ae01.alicdn.com/kf/Hd90022b93521488595b1a6491967c34fW.jpg",
+      ],
       caracteristicas: [
         "Clase D, 2 canales",
         "12–24V DC",
@@ -256,6 +264,7 @@ export default function Home() {
       img: "https://m.media-amazon.com/images/I/516hHka3yWL._UF894,1000_QL80_.jpg",
       imagenes: [
         "https://ae01.alicdn.com/kf/Sb8d8c78e85c64ccaad1711e6492694090.jpg_960x960.jpg",
+        "https://m.media-amazon.com/images/I/81r4Mf7N0GL._SL1500_.jpg",
       ],
       caracteristicas: [
         "Versión compatible con Bluetooth: 5.1",
