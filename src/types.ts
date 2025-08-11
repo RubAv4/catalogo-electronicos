@@ -6,7 +6,9 @@ export type Categoria =
   | "Módulos"
   | "Cargadores"
   | "Preamplificador"
-  | "BMS";
+  | "BMS"
+  | "Interruptores"
+  | "PCB";
 
 export type Producto = {
   id: number;

@@ -11,6 +11,8 @@ const CATEGORIES = [
   "Cargadores",
   "Preamplificador",
   "BMS",
+  "Interruptores",
+  "PCB",
 ] as const;
 
 export default function Home() {
@@ -372,6 +374,48 @@ export default function Home() {
         "Corriente de protección contra sobrecarga: 100 A",
         "Corriente de protección contra sobredescarga: 100 A",
         "Balance de amperaje (corriente): 60 mA.",
+      ],
+      contacto: "51978394103",
+    },
+    {
+      id: 23,
+      nombre: "Interruptor ON/OFF 250V 6A 125V 10A",
+      categoria: "Interruptores",
+      descripcion: "reemplazo de electrodomésticos",
+      img: "https://ae01.alicdn.com/kf/S143011faface49f4b77427dc26335bdcR.jpg",
+      imagenes: ["https://ae01.alicdn.com/kf/Sc4f6e424345f428b946cf27768fd9fddY.jpg"],
+      caracteristicas: [
+        "Clasificación eléctrica: 10 A a 125 VCA, 6 A a 250 VCA",
+        "Temperatura de funcionamiento: -25 °C a 85 °C",
+      ],
+      contacto: "51978394103",
+    },
+    {
+      id: 24,
+      nombre: "Placa PCB sin perforar un lado",
+      categoria: "PCB",
+      descripcion: "Circuitos DIY y prototipos",
+      img: "https://ae01.alicdn.com/kf/Sb4a98217aa3545f4a9a7738fd75636a74.jpg_640x640q90.jpg",
+      imagenes: ["https://ae01.alicdn.com/kf/Sa821077cd9d64e7ba3120f81c6ea3b31e.jpg_640x640q90.jpg"],
+      caracteristicas: [
+        "Material: Fibra de vidrio",
+        "Nombre:PCB de un solo lado FR4",
+        "Tamaño:5x7CM",
+        "Espesor:1,5 mm",
+      ],
+      contacto: "51978394103",
+    },
+    {
+      id: 25,
+      nombre: "PCB de doble cara placa de pruebas 2x8 3x7 4x6 5x7cm",
+      categoria: "PCB",
+      descripcion: "Circuitos DIY y prototipos",
+      img: "https://ae01.alicdn.com/kf/Se1acdc5846d84ad69fed8846e2fba824R.jpg?width=1000&height=1000&hash=2000",
+      imagenes: ["https://ae01.alicdn.com/kf/Seb95019bc2c1480196797800f8c635afh.jpg"],
+      caracteristicas: [
+        "Min. Tamaño del agujero: 1.0 mm",
+        "PCB Board Breadboard: 2x8 3x7 4x6 5x7 7x9cm",
+        "Espesor:1.6mm",
       ],
       contacto: "51978394103",
     },
