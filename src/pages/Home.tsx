@@ -18,7 +18,7 @@ const CATEGORIES = [
 ] as const;
 
 // Puedes usar un Gist/raw con VITE_AVAILABILITY_URL
-const AVAILABILITY_URL ="https://gist.githubusercontent.com/RubAv4/57126845a4d0a598e9c203d5a0b388a6/raw/9ff805ccc42b3ce1a75f62c4772f11bdefe86dd1/availability.json";
+const AVAILABILITY_URL ="https://gist.githubusercontent.com/RubAv4/57126845a4d0a598e9c203d5a0b388a6/raw/availability.json";
 
 export default function Home() {
   const [query, setQuery] = useState("");
