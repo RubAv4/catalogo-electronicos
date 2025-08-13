@@ -3,18 +3,10 @@ import type { Producto } from "../types";
 type Props = {
   producto: Producto;
   onMore: (p: Producto) => void;
-  /** mostrar botón para cambiar disponibilidad (solo en modo edición) */
-  showToggle?: boolean;
-  onToggleDisponibilidad?: (id: number) => void;
 };
 
-export default function ProductCard({
-  producto,
-  onMore,
-  showToggle,
-  onToggleDisponibilidad,
-}: Props) {
-  const { id, nombre, descripcion, img, contacto = "51999999999" } = producto;
+export default function ProductCard({ producto, onMore }: Props) {
+  const { nombre, descripcion, img, contacto = "51978394103" } = producto;
   const disponible = producto.disponible ?? true;
 
   return (
@@ -24,6 +16,7 @@ export default function ProductCard({
       role="button"
       tabIndex={0}
       onKeyDown={(e) => e.key === "Enter" && onMore(producto)}
+      aria-label={`Ver detalles de ${nombre}`}
     >
       {/* Badge y velo si NO disponible */}
       {!disponible && (
@@ -33,21 +26,6 @@ export default function ProductCard({
           </span>
           <div className="absolute inset-0 bg-white/60 backdrop-blur-[1px] pointer-events-none" />
         </>
-      )}
-
-      {/* Toggle de disponibilidad (solo en modo edición) */}
-      {showToggle && (
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            onToggleDisponibilidad?.(id);
-          }}
-          className={`absolute top-3 right-3 z-10 rounded-full px-3 py-1 text-xs font-medium shadow
-            ${disponible ? "bg-emerald-600 text-white" : "bg-red-600 text-white"}`}
-          title="Cambiar disponibilidad"
-        >
-          {disponible ? "Disponible" : "Agotado"}
-        </button>
       )}
 
       {/* Imagen */}
@@ -71,6 +49,7 @@ export default function ProductCard({
               ${!disponible ? "pointer-events-none opacity-50 cursor-not-allowed" : ""}`}
             onClick={(e) => e.stopPropagation()}
             aria-disabled={!disponible}
+            title={disponible ? "Contactar por WhatsApp" : "Producto no disponible"}
           >
             Contactar por WhatsApp
           </a>
@@ -80,6 +59,7 @@ export default function ProductCard({
               e.stopPropagation();
               onMore(producto);
             }}
+            aria-label={`Más información sobre ${nombre}`}
           >
             Más información
           </button>
