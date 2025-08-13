@@ -1,7 +1,8 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import ProductModal from "../components/ProductModal";
 import type { Producto } from "../types";
+
 const CATEGORIES = [
   "Todos",
   "Amplificadores",
@@ -19,9 +20,10 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [cat, setCat] = useState<(typeof CATEGORIES)[number]>("Todos");
   const [selected, setSelected] = useState<Producto | null>(null);
+  const [editMode, setEditMode] = useState(false);
 
-  // === TU LISTA DE COMPONENTES (con imágenes extra y características) ===
-  const productos: Producto[] = [
+  // ===== LISTA INICIAL (algunos con disponible:false) =====
+  const initial: Producto[] = [
     {
       id: 1,
       nombre: "Amplificador TPA3116 estéreo",
@@ -40,6 +42,7 @@ export default function Home() {
         "Protección contra sobrecarga",
       ],
       contacto: "51978394103",
+      disponible: true,
     },
     {
       id: 2,
@@ -58,6 +61,7 @@ export default function Home() {
         "Entrada por pin header",
       ],
       contacto: "51978394103",
+      disponible: true,
     },
     {
       id: 3,
@@ -75,6 +79,7 @@ export default function Home() {
         "PCB compacta",
       ],
       contacto: "51978394103",
+      disponible: true,
     },
     {
       id: 4,
@@ -92,6 +97,7 @@ export default function Home() {
         "Terminales de tornillo",
       ],
       contacto: "51978394103",
+      disponible: true,
     },
     {
       id: 5,
@@ -111,6 +117,7 @@ export default function Home() {
         "Uso educativo",
       ],
       contacto: "51978394103",
+      disponible: true,
     },
     {
       id: 6,
@@ -125,6 +132,7 @@ export default function Home() {
         "Bornes atornillables",
       ],
       contacto: "51978394103",
+      disponible: true, // 👈 no disponible
     },
     {
       id: 7,
@@ -139,6 +147,7 @@ export default function Home() {
         "Ventilación forzada",
       ],
       contacto: "51978394103",
+      disponible: true,
     },
     {
       id: 8,
@@ -156,6 +165,7 @@ export default function Home() {
         "Carcasa plástica",
       ],
       contacto: "51978394103",
+      disponible: true,
     },
     {
       id: 9,
@@ -170,6 +180,7 @@ export default function Home() {
         "Disipador requerido",
       ],
       contacto: "51978394103",
+      disponible: true, // 👈 no disponible
     },
     {
       id: 10,
@@ -187,6 +198,7 @@ export default function Home() {
         "DIP/SMT según versión",
       ],
       contacto: "51978394103",
+      disponible: true,
     },
     {
       id: 11,
@@ -201,6 +213,7 @@ export default function Home() {
         "Antena integrada",
       ],
       contacto: "51978394103",
+      disponible: true,
     },
     {
       id: 12,
@@ -219,6 +232,7 @@ export default function Home() {
         "Salidas de audio",
       ],
       contacto: "51978394103",
+      disponible: true,
     },
     {
       id: 13,
@@ -231,13 +245,9 @@ export default function Home() {
         "https://ae01.alicdn.com/kf/HTB1VWh9LYrpK1RjSZTEq6AWAVXaN/XH-M314-TPA3118-2x45W-12V-24V-Stereo-audio-Bluetooth-Digital-power-Amplifier-Board-amplificador.jpg_.webp",
         "https://ae01.alicdn.com/kf/Hd90022b93521488595b1a6491967c34fW.jpg",
       ],
-      caracteristicas: [
-        "Clase D, 2 canales",
-        "12–24V DC",
-        "Alta eficiencia",
-        "PCB compacta",
-      ],
+      caracteristicas: ["Clase D, 2 canales", "12–24V DC", "Alta eficiencia", "PCB compacta"],
       contacto: "51978394103",
+      disponible: true,
     },
     {
       id: 14,
@@ -255,6 +265,7 @@ export default function Home() {
         "Pads B+/B-, OUT+/OUT-",
       ],
       contacto: "51978394103",
+      disponible: true,
     },
     {
       id: 15,
@@ -275,6 +286,7 @@ export default function Home() {
         "Altavoz adaptado: 20~100 W, 4ohm",
       ],
       contacto: "51978394103",
+      disponible: true, // 👈 no disponible
     },
     {
       id: 16,
@@ -282,9 +294,7 @@ export default function Home() {
       categoria: "Conectores",
       descripcion: "2 pines",
       img: "https://ae01.alicdn.com/kf/S19a4b4bd640345eb9893062544892d36r.jpg_640x640q90.jpg",
-      imagenes: [
-        "https://ae01.alicdn.com/kf/S1fb2253df66a4ddea8b8e88e08757272p.jpg",
-      ],
+      imagenes: ["https://ae01.alicdn.com/kf/S1fb2253df66a4ddea8b8e88e08757272p.jpg"],
       caracteristicas: [
         "Material: Resistente al calor",
         "Tipo de producto: Conector de enchufe tipo C hembra ",
@@ -294,6 +304,7 @@ export default function Home() {
         "Forma: Conectores de carga tipo C",
       ],
       contacto: "51978394103",
+      disponible: true,
     },
     {
       id: 17,
@@ -301,9 +312,7 @@ export default function Home() {
       categoria: "BMS",
       descripcion: "Módulo para carga de baterías de litio",
       img: "https://epartners.co.nz/cdn/shop/products/Screenshot_24__10__S4QLZTR9R85E.png?v=1674007022&width=1080",
-      imagenes: [
-        "https://ae01.alicdn.com/kf/Sdb677ac54cc9439dbc422672fed0d4a10.jpg",
-      ],
+      imagenes: ["https://ae01.alicdn.com/kf/Sdb677ac54cc9439dbc422672fed0d4a10.jpg"],
       caracteristicas: [
         "Tensión de detección de sobrecarga: 4.25 ± 0.05 V",
         "Tensión de liberación de sobrecarga: 4.23 ± 0.05 V",
@@ -313,6 +322,7 @@ export default function Home() {
         "Tensión de carga: 4.2 V",
       ],
       contacto: "51978394103",
+      disponible: true,
     },
     {
       id: 18,
@@ -328,6 +338,7 @@ export default function Home() {
         "Corriente continua máxima: 12 A",
       ],
       contacto: "51978394103",
+      disponible: true,
     },
     {
       id: 19,
@@ -335,13 +346,16 @@ export default function Home() {
       categoria: "BMS",
       descripcion: "Módulo para carga de baterías de litio",
       img: "https://m.media-amazon.com/images/I/410ORr+aydL._UF1000,1000_QL80_.jpg",
-      imagenes: ["https://battery101.co.uk/cdn/shop/products/2S_20A_7-4V_8-4V_li-ion_bms_balance_protection_board_wiring_1200x.jpg?v=1673705587"],
+      imagenes: [
+        "https://battery101.co.uk/cdn/shop/products/2S_20A_7-4V_8-4V_li-ion_bms_balance_protection_board_wiring_1200x.jpg?v=1673705587",
+      ],
       caracteristicas: [
         "Corriente máxima de funcionamiento: 13 A",
         "Corriente máxima de limitación: 20 A.",
         "Voltaje de alimentación: 8,4-9 V",
       ],
       contacto: "51978394103",
+      disponible: false,
     },
     {
       id: 20,
@@ -356,6 +370,7 @@ export default function Home() {
         "Corriente continua máxima: 20 A",
       ],
       contacto: "51978394103",
+      disponible: false,
     },
     {
       id: 21,
@@ -370,6 +385,7 @@ export default function Home() {
         "Voltaje de carga: 16,8 V a 18,1 V",
       ],
       contacto: "51978394103",
+      disponible: false,
     },
     {
       id: 22,
@@ -377,7 +393,9 @@ export default function Home() {
       categoria: "BMS",
       descripcion: "Módulo para carga de baterías de litio",
       img: "https://battery101.co.uk/cdn/shop/products/5s_100a_li_ion_main.jpg?v=1669066120",
-      imagenes: ["https://battery101.co.uk/cdn/shop/products/5s_100a_li_ion_wiring_diagram_1200x.jpg?v=1669066119"],
+      imagenes: [
+        "https://battery101.co.uk/cdn/shop/products/5s_100a_li_ion_wiring_diagram_1200x.jpg?v=1669066119",
+      ],
       caracteristicas: [
         "Voltaje máximo: 21 V",
         "Corriente de protección contra sobrecarga: 100 A",
@@ -385,6 +403,7 @@ export default function Home() {
         "Balance de amperaje (corriente): 60 mA.",
       ],
       contacto: "51978394103",
+      disponible: false, // 
     },
     {
       id: 23,
@@ -398,6 +417,7 @@ export default function Home() {
         "Temperatura de funcionamiento: -25 °C a 85 °C",
       ],
       contacto: "51978394103",
+      disponible: false,
     },
     {
       id: 24,
@@ -406,13 +426,9 @@ export default function Home() {
       descripcion: "Circuitos DIY y prototipos",
       img: "https://ae01.alicdn.com/kf/Sb4a98217aa3545f4a9a7738fd75636a74.jpg_640x640q90.jpg",
       imagenes: ["https://ae01.alicdn.com/kf/Sa821077cd9d64e7ba3120f81c6ea3b31e.jpg_640x640q90.jpg"],
-      caracteristicas: [
-        "Material: Fibra de vidrio",
-        "Nombre:PCB de un solo lado FR4",
-        "Tamaño:5x7CM",
-        "Espesor:1,5 mm",
-      ],
+      caracteristicas: ["Material: Fibra de vidrio", "Nombre:PCB de un solo lado FR4", "Tamaño:5x7CM", "Espesor:1,5 mm"],
       contacto: "51978394103",
+      disponible: true,
     },
     {
       id: 25,
@@ -421,24 +437,40 @@ export default function Home() {
       descripcion: "Circuitos DIY y prototipos",
       img: "https://ae01.alicdn.com/kf/Se1acdc5846d84ad69fed8846e2fba824R.jpg?width=1000&height=1000&hash=2000",
       imagenes: ["https://ae01.alicdn.com/kf/Seb95019bc2c1480196797800f8c635afh.jpg"],
-      caracteristicas: [
-        "Min. Tamaño del agujero: 1.0 mm",
-        "PCB Board Breadboard: 2x8 3x7 4x6 5x7cm",
-        "Espesor:1.6mm",
-      ],
+      caracteristicas: ["Min. Tamaño del agujero: 1.0 mm", "PCB Board Breadboard: 2x8 3x7 4x6 5x7cm", "Espesor:1.6mm"],
       contacto: "51978394103",
+      disponible: true,
     },
   ];
 
+  // ===== Estado editable (para marcar no disponible) =====
+  const [items, setItems] = useState<Producto[]>(initial);
+
+  // Persistencia local (opcional)
+  useEffect(() => {
+    const saved = localStorage.getItem("disp-map");
+    if (!saved) return;
+    const map: Record<number, boolean> = JSON.parse(saved);
+    setItems((prev) => prev.map((p) => ({ ...p, disponible: map[p.id] ?? p.disponible })));
+  }, []);
+  useEffect(() => {
+    const map: Record<number, boolean> = {};
+    items.forEach((p) => (map[p.id] = p.disponible ?? true));
+    localStorage.setItem("disp-map", JSON.stringify(map));
+  }, [items]);
+
+  const toggleDisponibilidad = (id: number) =>
+    setItems((prev) => prev.map((p) => (p.id === id ? { ...p, disponible: !(p.disponible ?? true) } : p)));
+
+  // ===== Filtro =====
   const filtrados = useMemo(() => {
     const q = query.toLowerCase();
-    return productos.filter((p) => {
+    return items.filter((p) => {
       const okCat = cat === "Todos" ? true : p.categoria === cat;
       const text = (p.nombre + " " + p.descripcion).toLowerCase();
-      const okText = text.includes(q);
-      return okCat && okText;
+      return okCat && text.includes(q);
     });
-  }, [query, cat]);
+  }, [query, cat, items]);
 
   return (
     <main id="productos" className="max-w-screen-xl mx-auto px-6">
@@ -450,16 +482,11 @@ export default function Home() {
           className="w-full h-96 object-cover"
         />
         <div
-          className="
-    absolute top-6 left-1/2 -translate-x-1/2
-    w-[90%] max-w-md text-center
-    bg-white/95 border-2 border-black rounded-2xl px-4 py-3 shadow-md
-    md:top-1/3 md:left-10 md:translate-x-0 md:w-auto md:max-w-none md:text-left md:px-6 md:py-4
-  "
+          className="absolute top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md text-center
+                     bg-white/95 border-2 border-black rounded-2xl px-4 py-3 shadow-md
+                     md:top-1/3 md:left-10 md:translate-x-0 md:w-auto md:max-w-none md:text-left md:px-6 md:py-4"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
-            Todo para tu día a día
-          </h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">Todo para tu día a día</h2>
           <p className="mt-2 text-sm sm:text-base md:text-lg text-gray-700">
             Componentes electrónicos seleccionados para tus proyectos.
           </p>
@@ -490,30 +517,44 @@ export default function Home() {
           <button
             key={c}
             onClick={() => setCat(c)}
-            className={`px-4 py-1 rounded-full border transition
-              ${
-                cat === c
-                  ? "bg-black text-white border-black"
-                  : "bg-white hover:bg-gray-100 border-gray-300"
-              }`}
+            className={`px-4 py-1 rounded-full border transition ${
+              cat === c ? "bg-black text-white border-black" : "bg-white hover:bg-gray-100 border-gray-300"
+            }`}
           >
             {c}
           </button>
         ))}
       </div>
 
+      {/* Modo edición: alternar disponibilidad */}
+      <div className="mt-4">
+        <label className="inline-flex items-center gap-2 text-sm select-none">
+          <input
+            type="checkbox"
+            className="accent-black"
+            checked={editMode}
+            onChange={(e) => setEditMode(e.target.checked)}
+          />
+          Editar disponibilidad
+        </label>
+      </div>
+
       {/* Productos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
         {filtrados.map((p) => (
-          <ProductCard key={p.id} producto={p} onMore={setSelected} />
+          <ProductCard
+            key={p.id}
+            producto={p}
+            onMore={setSelected}
+            showToggle={editMode}
+            onToggleDisponibilidad={toggleDisponibilidad}
+          />
         ))}
-        {filtrados.length === 0 && (
-          <p className="text-sm text-gray-500">No hay resultados.</p>
-        )}
+        {filtrados.length === 0 && <p className="text-sm text-gray-500">No hay resultados.</p>}
       </div>
 
       {/* Modal */}
-      <ProductModal producto={selected} onClose={() => setSelected(null)} />
+      <ProductModal key={selected?.id ?? "none"} producto={selected} onClose={() => setSelected(null)} />
     </main>
   );
 }

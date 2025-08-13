@@ -36,6 +36,7 @@ export default function ProductModal({
 
   if (!producto) return null;
 
+  const disponible = producto.disponible ?? true;
   const allImages = [producto.img, ...(producto.imagenes ?? [])];
 
   return (
@@ -51,7 +52,14 @@ export default function ProductModal({
       >
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b">
-          <h3 className="text-lg font-semibold">{producto.nombre}</h3>
+          <div className="flex items-center gap-3">
+            <h3 className="text-lg font-semibold">{producto.nombre}</h3>
+            {!disponible && (
+              <span className="rounded-full bg-red-600 text-white text-xs px-2 py-0.5">
+                No disponible
+              </span>
+            )}
+          </div>
           <button
             onClick={onClose}
             className="rounded-full w-9 h-9 grid place-items-center hover:bg-gray-100 text-gray-600"
@@ -69,11 +77,9 @@ export default function ProductModal({
             {/* Imagen principal: siempre contenida + zoom al hover */}
             <div
               className="group relative bg-gray-100 rounded-xl overflow-hidden
-             h-[min(60vh,22rem)] md:h-[min(65vh,24rem)] select-none"
+                         h-[min(60vh,22rem)] md:h-[min(65vh,24rem)] select-none"
               onMouseMove={(e) => {
-                const r = (
-                  e.currentTarget as HTMLDivElement
-                ).getBoundingClientRect();
+                const r = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
                 const x = ((e.clientX - r.left) / r.width) * 100;
                 const y = ((e.clientY - r.top) / r.height) * 100;
                 setOrigin(`${x}% ${y}%`);
@@ -83,8 +89,8 @@ export default function ProductModal({
                 src={allImages[idx]}
                 alt={`Imagen ${idx + 1} de ${producto.nombre}`}
                 className="absolute inset-0 w-full h-full object-contain
-               transition-transform duration-300 ease-out will-change-transform
-               group-hover:scale-[1.9] md:group-hover:scale-[2.1] cursor-zoom-in"
+                           transition-transform duration-300 ease-out will-change-transform
+                           group-hover:scale-[1.9] md:group-hover:scale-[2.1] cursor-zoom-in"
                 style={{ transformOrigin: origin }}
                 draggable={false}
               />
@@ -126,14 +132,26 @@ export default function ProductModal({
             </ul>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <a
-                href={`https://wa.me/${producto.contacto ?? "51978394103"}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full bg-black text-white px-5 py-2 text-sm font-medium hover:bg-gray-800"
-              >
-                Contactar por WhatsApp
-              </a>
+              {disponible ? (
+                <a
+                  href={`https://wa.me/${producto.contacto ?? "51978394103"}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full bg-black text-white px-5 py-2 text-sm font-medium hover:bg-gray-800"
+                >
+                  Contactar por WhatsApp
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  disabled
+                  className="rounded-full bg-gray-300 text-gray-600 px-5 py-2 text-sm font-medium cursor-not-allowed"
+                  title="Producto no disponible"
+                  aria-disabled="true"
+                >
+                  No disponible
+                </button>
+              )}
               <button
                 onClick={onClose}
                 className="rounded-full border px-5 py-2 text-sm hover:bg-gray-50"
@@ -146,7 +164,9 @@ export default function ProductModal({
 
         {/* Footer modal */}
         <div className="px-5 pb-5 text-xs text-gray-500">
-          {/* texto del footer del modal */}
+          {disponible
+            ? ""
+            : "* Este artículo está temporalmente sin stock."}
         </div>
       </div>
     </div>

@@ -19,4 +19,7 @@ export type Producto = {
   imagenes?: string[];
   caracteristicas: string[];
   contacto?: string;
+  /** si no se define, asumimos disponible */
+  disponible?: boolean;
 };
+
