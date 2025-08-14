@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import ProductModal from "../components/ProductModal";
 import type { Producto } from "../types";
+import HeroCarousel from "../components/HeroCarousel";
 
 const CATEGORIES = [
   "Todos",
@@ -17,8 +18,9 @@ const CATEGORIES = [
   "PCB",
 ] as const;
 
-// Puedes usar un Gist/raw con VITE_AVAILABILITY_URL
-const AVAILABILITY_URL ="https://gist.githubusercontent.com/RubAv4/57126845a4d0a598e9c203d5a0b388a6/raw/availability.json";
+// URL fallback (por si no está definida la env VITE_AVAILABILITY_URL)
+const AVAILABILITY_FALLBACK =
+  "https://gist.githubusercontent.com/RubAv4/57126845a4d0a598e9c203d5a0b388a6/raw/availability.json";
 
 export default function Home() {
   const [query, setQuery] = useState("");
@@ -135,7 +137,7 @@ export default function Home() {
         "Bornes atornillables",
       ],
       contacto: "51978394103",
-      disponible: true, // comentario indicaba no disponible, dejo tu valor actual
+      disponible: true,
     },
     {
       id: 7,
@@ -183,7 +185,7 @@ export default function Home() {
         "Disipador requerido",
       ],
       contacto: "51978394103",
-      disponible: true, // comentario indicaba no disponible, dejo tu valor actual
+      disponible: true,
     },
     {
       id: 10,
@@ -294,7 +296,7 @@ export default function Home() {
         "Altavoz: 20~100 W, 4Ω",
       ],
       contacto: "51978394103",
-      disponible: true, // comentario indicaba no disponible, dejo tu valor actual
+      disponible: true,
     },
     {
       id: 16,
@@ -466,30 +468,36 @@ export default function Home() {
   // Copiamos a estado para poder aplicar disponibilidad desde JSON
   const [items, setItems] = useState<Producto[]>(productos);
 
-  // (Opcional) si editas la lista en el código, sincroniza el estado
+  // (Opcional) sincroniza estado al montar
   useEffect(() => {
     setItems(productos);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // una vez al montar
+  }, []);
 
   // Lee /availability.json (mapa { id: boolean } o array [{id, disponible}])
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch(`${AVAILABILITY_URL}?_=${Date.now()}`);
+        const url =
+          import.meta.env.VITE_AVAILABILITY_URL ?? AVAILABILITY_FALLBACK;
+        const res = await fetch(`${url}?t=${Date.now()}`);
         if (!res.ok) return;
 
-        const data = await res.json();
+        const data: unknown = await res.json();
         const map: Record<number, boolean> = {};
 
         if (Array.isArray(data)) {
-          for (const it of data) {
-            if (typeof it?.id === "number") map[it.id] = Boolean(it.disponible);
+          for (const it of data as Array<{
+            id?: unknown;
+            disponible?: unknown;
+          }>) {
+            if (typeof it?.id === "number") map[it.id] = it.disponible === true;
           }
         } else if (data && typeof data === "object") {
-          for (const k of Object.keys(data)) {
+          const obj = data as Record<string, unknown>;
+          for (const k of Object.keys(obj)) {
             const id = Number(k);
-            if (!Number.isNaN(id)) map[id] = Boolean((data as any)[k]);
+            if (!Number.isNaN(id)) map[id] = obj[k] === true;
           }
         }
 
@@ -518,16 +526,24 @@ export default function Home() {
   return (
     <main id="productos" className="max-w-screen-xl mx-auto px-6">
       {/* Hero */}
-      <section className="relative bg-gray-300 rounded-b-2xl overflow-hidden mt-4">
-        <img
-          src="https://onubaelectronica.es/wp-content/uploads/2020/08/componentes_electronica.jpg"
-          alt="banner"
-          className="w-full h-96 object-cover"
-        />
+      <HeroCarousel
+        images={[
+          "https://img.freepik.com/premium-photo/pc-parts-electronic-parts-nice-pattern_606429-1094.jpg",
+          "https://images.pexels.com/photos/7286006/pexels-photo-7286006.jpeg?cs=srgb&dl=pexels-karolina-grabowska-7286006.jpg&fm=jpg",
+          "https://img.freepik.com/free-photo/female-inventor-working-new-creation_23-2149067250.jpg?semt=ais_hybrid&w=740",
+          "https://hackaday.com/wp-content/uploads/2018/09/555-timer-circuit-robot-fe.jpg",
+          "https://static.electronicsweekly.com/gadget-master/wp-content/uploads/sites/4/2013/05/Dbugs.jpg",
+        ]}
+        interval={3000}
+      >
+        {/* Tu caja blanca superpuesta, igual que antes */}
         <div
-          className="absolute top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md text-center
-                     bg-white/95 border-2 border-black rounded-2xl px-4 py-3 shadow-md
-                     md:top-1/3 md:left-10 md:translate-x-0 md:w-auto md:max-w-none md:text-left md:px-6 md:py-4"
+          className="
+      absolute top-6 left-1/2 -translate-x-1/2
+      w-[90%] max-w-md text-center
+      bg-white/95 border-2 border-black rounded-2xl px-4 py-3 shadow-md
+      md:top-1/3 md:left-10 md:translate-x-0 md:w-auto md:max-w-none md:text-left md:px-6 md:py-4
+    "
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
             Todo para tu día a día
@@ -536,7 +552,7 @@ export default function Home() {
             Componentes electrónicos seleccionados para tus proyectos.
           </p>
         </div>
-      </section>
+      </HeroCarousel>
 
       {/* Buscador */}
       <div className="flex items-center gap-2 mt-6">
