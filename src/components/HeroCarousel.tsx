@@ -16,7 +16,7 @@ export default function HeroCarousel({
   interval = 3000,
   className = "",
   children,
-  aspect = "21/9",
+  aspect = "16 /7",
   fit = "cover",
   objectPosition = "center",
 }: Props) {

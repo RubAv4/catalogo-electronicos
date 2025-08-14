@@ -536,19 +536,20 @@ export default function Home() {
         ]}
         interval={3000}
       >
-        {/* Tu caja blanca superpuesta, igual que antes */}
+        {/* Caja blanca superpuesta, centrada arriba y responsive */}
         <div
           className="
-      absolute top-6 left-1/2 -translate-x-1/2
-      w-[90%] max-w-md text-center
-      bg-white/95 border-2 border-black rounded-2xl px-4 py-3 shadow-md
-      md:top-1/3 md:left-10 md:translate-x-0 md:w-auto md:max-w-none md:text-left md:px-6 md:py-4
-    "
+    absolute left-1/2 -translate-x-1/2
+    top-3 sm:top-5 md:top-8
+    w-11/12 max-w-md text-center
+    bg-white/95 border-2 border-black rounded-2xl
+    px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4 shadow-md
+  "
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
+          <h2 className="font-bold text-gray-900 text-xl sm:text-2xl md:text-4xl">
             Todo para tu día a día
           </h2>
-          <p className="mt-2 text-sm sm:text-base md:text-lg text-gray-700">
+          <p className="mt-1 sm:mt-2 text-gray-700 text-xs sm:text-sm md:text-lg">
             Componentes electrónicos seleccionados para tus proyectos.
           </p>
         </div>
