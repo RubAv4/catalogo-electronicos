@@ -546,7 +546,7 @@ export default function Home() {
     px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4 shadow-md
   "
         >
-          <h2 className="font-bold text-gray-900 text-l sm:text-2xl md:text-4xl">
+          <h2 className="font-bold text-gray-900 text-xs sm:text-2xl md:text-2xl">
             Todo para tu día a día
           </h2>
           <p className="mt-1 sm:mt-2 text-gray-700 text-xs sm:text-sm md:text-lg">
