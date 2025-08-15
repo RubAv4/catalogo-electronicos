@@ -536,16 +536,22 @@ export default function Home() {
         ]}
         interval={3000}
       >
-        {/* Caja blanca superpuesta, centrada arriba y responsive */}
+        {/* Caja blanca superpuesta — centrada arriba, más pro (sin cambiar font-size) */}
         <div
           className="
     absolute left-1/2 -translate-x-1/2
     top-3 sm:top-5 md:top-8
-    w-11/12 max-w-md text-center
-    bg-white/95 border-2 border-black rounded-2xl
-    px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4 shadow-md
+    w-11/12 max-w-md md:max-w-lg text-center
+    rounded-2xl border-2 border-black
+    bg-gradient-to-b from-white/1 to-white/1
+    supports-[backdrop-filter]:bg-white/60 supports-[backdrop-filter]:backdrop-blur-md
+    shadow-[0_8px_30px_rgba(0,0,0,0.20)]
+    px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4
   "
         >
+          {/* hairline interior para más “depth” */}
+          <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-black/5"></div>
+
           <h2 className="font-bold text-gray-900 text-xs sm:text-2xl md:text-2xl">
             Todo para tu día a día
           </h2>
