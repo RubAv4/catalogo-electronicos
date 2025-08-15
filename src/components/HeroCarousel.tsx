@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 
 type Props = {
   images: string[];
-  interval?: number;              // ms (autoplay)
+  interval?: number; // ms (autoplay)
   className?: string;
-  children?: React.ReactNode;     // contenido superpuesto (tu caja blanca)
+  children?: React.ReactNode; // contenido superpuesto (tu caja blanca)
   aspect?: `${number}/${number}`; // proporción fija del banner (ej: "16/9", "21/9", "3/1")
-  fit?: "contain" | "cover";      // cómo encajar la imagen
-  objectPosition?: string;        // ej: "center", "center top"
+  fit?: "contain" | "cover"; // cómo encajar la imagen
+  objectPosition?: string; // ej: "center", "center top"
 };
 
 export default function HeroCarousel({
@@ -35,11 +35,11 @@ export default function HeroCarousel({
   const prev = () => setIdx((i) => (i - 1 + images.length) % images.length);
   const next = () => setIdx((i) => (i + 1) % images.length);
 
-  const imgClass = fit === "contain" ? "object-contain" : "object-cover";
+  const imgClass = fit === "contain" ? "object-contain" : "object-cover"; 
 
   return (
     <section
-      className={`relative overflow-hidden rounded-b-2xl ${className}`}
+      className={`relative overflow-hidden rounded-3xl bg-neutral-100 ${className}`}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
