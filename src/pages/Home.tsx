@@ -563,11 +563,11 @@ export default function Home() {
                   bg-gradient-to-b from-white/30 via-white/0 to-black/5"
           ></div>
 
-          <h2 className="font-bold text-gray-900 text-xs sm:text-2xl md:text-2xl">
-            Todo para tu día a día
-          </h2>
+          <h1 className="font-bold text-gray-900 text-xs sm:text-2xl md:text-2xl">
+            Conecta, enciende, crea
+          </h1>
           <p className="mt-1 sm:mt-2 text-gray-700 text-xs sm:text-sm md:text-lg">
-            Componentes electrónicos seleccionados para tus proyectos.
+            Componentes seleccionados para tus proyectos DIY.
           </p>
         </div>
       </HeroCarousel>
