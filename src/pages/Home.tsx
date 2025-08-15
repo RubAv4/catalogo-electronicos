@@ -536,21 +536,32 @@ export default function Home() {
         ]}
         interval={3000}
       >
-        {/* Caja blanca superpuesta — centrada arriba, más pro (sin cambiar font-size) */}
+        {/* Caja blanca superpuesta — centrada arriba, look pro */}
         <div
           className="
     absolute left-1/2 -translate-x-1/2
     top-3 sm:top-5 md:top-8
     w-11/12 max-w-md md:max-w-lg text-center
-    rounded-2xl border-2 border-black
-    bg-gradient-to-b from-white/1 to-white/1
-    supports-[backdrop-filter]:bg-white/60 supports-[backdrop-filter]:backdrop-blur-md
-    shadow-[0_8px_30px_rgba(0,0,0,0.20)]
+
+    rounded-3xl border-1
+    bg-white/85 bg-clip-padding
+    shadow-xl shadow-black/20
+
+    supports-[backdrop-filter]:bg-white/55
+    supports-[backdrop-filter]:backdrop-blur-lg
+    supports-[backdrop-filter]:backdrop-saturate-150
+
     px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4
   "
         >
-          {/* hairline interior para más “depth” */}
+          {/* hairline interior sutil */}
           <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-black/5"></div>
+
+          {/* brillo arriba + leve sombreado abajo para profundidad */}
+          <div
+            className="pointer-events-none absolute inset-0 rounded-2xl
+                  bg-gradient-to-b from-white/30 via-white/0 to-black/5"
+          ></div>
 
           <h2 className="font-bold text-gray-900 text-xs sm:text-2xl md:text-2xl">
             Todo para tu día a día
