@@ -46,10 +46,16 @@ export default function ProductCard({ producto, onMore }: Props) {
             target="_blank"
             rel="noopener noreferrer"
             className={`rounded-full bg-black text-white px-5 py-2 text-sm font-medium hover:bg-gray-800
-              ${!disponible ? "pointer-events-none opacity-50 cursor-not-allowed" : ""}`}
+              ${
+                !disponible
+                  ? "pointer-events-none opacity-50 cursor-not-allowed"
+                  : ""
+              }`}
             onClick={(e) => e.stopPropagation()}
             aria-disabled={!disponible}
-            title={disponible ? "Contactar por WhatsApp" : "Producto no disponible"}
+            title={
+              disponible ? "Contactar por WhatsApp" : "Producto no disponible"
+            }
           >
             Contactar por WhatsApp
           </a>

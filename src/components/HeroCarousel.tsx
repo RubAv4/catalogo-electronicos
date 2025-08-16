@@ -35,7 +35,7 @@ export default function HeroCarousel({
   const prev = () => setIdx((i) => (i - 1 + images.length) % images.length);
   const next = () => setIdx((i) => (i + 1) % images.length);
 
-  const imgClass = fit === "contain" ? "object-contain" : "object-cover"; 
+  const imgClass = fit === "contain" ? "object-contain" : "object-cover";
 
   return (
     <section

@@ -11,8 +11,8 @@ export default function AboutSection() {
       <div className="bg-white rounded-2xl shadow-md border p-6">
         <h2 className="text-2xl font-bold">Sobre mí</h2>
         <p className="text-gray-600 mt-2">
-          Hola, soy Ruberth. En este espacio encontraras componentes electrónicos para
-          proyectos DIY y educativos.
+          Hola, soy Ruberth. En este espacio encontraras componentes
+          electrónicos para proyectos DIY y educativos.
         </p>
 
         <div className="grid md:grid-cols-3 gap-6 mt-6 text-sm">

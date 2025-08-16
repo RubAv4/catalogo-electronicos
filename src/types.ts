@@ -22,4 +22,3 @@ export type Producto = {
   /** si no se define, asumimos disponible */
   disponible?: boolean;
 };
-

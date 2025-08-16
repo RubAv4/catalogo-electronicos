@@ -79,7 +79,9 @@ export default function ProductModal({
               className="group relative bg-gray-100 rounded-xl overflow-hidden
                          h-[min(60vh,22rem)] md:h-[min(65vh,24rem)] select-none"
               onMouseMove={(e) => {
-                const r = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
+                const r = (
+                  e.currentTarget as HTMLDivElement
+                ).getBoundingClientRect();
                 const x = ((e.clientX - r.left) / r.width) * 100;
                 const y = ((e.clientY - r.top) / r.height) * 100;
                 setOrigin(`${x}% ${y}%`);
@@ -164,9 +166,7 @@ export default function ProductModal({
 
         {/* Footer modal */}
         <div className="px-5 pb-5 text-xs text-gray-500">
-          {disponible
-            ? ""
-            : "* Este artículo está temporalmente sin stock."}
+          {disponible ? "" : "* Este artículo está temporalmente sin stock."}
         </div>
       </div>
     </div>
