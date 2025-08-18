@@ -16,6 +16,7 @@ const CATEGORIES = [
   "BMS",
   "Interruptores",
   "PCB",
+  "Reguladores",
 ] as const;
 
 // URL fallback (por si no está definida la env VITE_AVAILABILITY_URL)
@@ -481,6 +482,23 @@ export default function Home() {
         "Agujero mínimo: 1.0 mm",
         "Tamaños: 2x8 3x7 4x6 5x7cm",
         "Espesor: 1.6mm",
+      ],
+      contacto: "51978394103",
+      disponible: true,
+    },
+    {
+      id: 26,
+      nombre: "Regulador de voltaje LM7805",
+      categoria: "Reguladores",
+      descripcion: "Regulador de voltaje lineal 5V",
+      img: "https://ae01.alicdn.com/kf/S22017d81a6854a7c87bc792196017141V.jpg",
+      imagenes: [
+        "https://ae01.alicdn.com/kf/Hb78137a042c34a728460b3048574362da.jpg",
+      ],
+      caracteristicas: [
+        "Nombre:L7805CV",
+        "Entrad de voltaje: 35v máx",
+        "Salida de voltaje: 5v 1.5A",
       ],
       contacto: "51978394103",
       disponible: true,

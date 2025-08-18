@@ -8,7 +8,8 @@ export type Categoria =
   | "Preamplificador"
   | "BMS"
   | "Interruptores"
-  | "PCB";
+  | "PCB"
+  | "Reguladores";
 
 export type Producto = {
   id: number;
