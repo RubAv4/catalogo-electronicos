@@ -494,6 +494,7 @@ export default function Home() {
       img: "https://ae01.alicdn.com/kf/S22017d81a6854a7c87bc792196017141V.jpg",
       imagenes: [
         "https://ae01.alicdn.com/kf/Hb78137a042c34a728460b3048574362da.jpg",
+        "https://ditecnomakers.com/statics/7805-Voltage-Regulator-Pinout-7c66c645.png",
       ],
       caracteristicas: [
         "Nombre:L7805CV",
