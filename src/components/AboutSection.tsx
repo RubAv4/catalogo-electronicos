@@ -70,7 +70,7 @@ export default function AboutSection() {
 
               {/* WhatsApp */}
               <a
-                href="https://wa.me/51978394103" /* cambia por tu número con código de país */
+                href="https://wa.me/51978394103"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"

@@ -504,6 +504,24 @@ export default function Home() {
       contacto: "51978394103",
       disponible: true,
     },
+    {
+      id: 27,
+      nombre: "Elevador de voltaje MT3608",
+      categoria: "Reguladores",
+      descripcion: "Módulo de refuerzo ajustable MT3608 DC-DC",
+      img: "https://ae01.alicdn.com/kf/S8b16da1c25ca4c72bd97b9fee1db4b33c.jpg",
+      imagenes: [
+        "https://ae01.alicdn.com/kf/Se304d2e735f6475e8a83de232d0b145en.jpg",
+        "https://ae01.alicdn.com/kf/S59f5a9df7a1b4683902ae55cbbc166bbP.jpg",
+      ],
+      caracteristicas: [
+        "Voltaje de entrada: 2 v ~ 24 v",
+        "Voltaje máximo de salida:> 28 v (recomendado para uso dentro de 26 V)",
+        "Corriente de salida máxima: 2A (recomendado para uso dentro de 1A)",
+      ],
+      contacto: "51978394103",
+      disponible: true,
+    },
   ];
 
   // Copiamos a estado para poder aplicar disponibilidad desde JSON
@@ -577,7 +595,7 @@ export default function Home() {
         ]}
         interval={3000}
       >
-        {/* Caja blanca superpuesta — centrada arriba, look pro */}
+        {/* Caja blanca superpuesta — centrada arriba*/}
         <div
           className="
     absolute left-1/2 -translate-x-1/2
