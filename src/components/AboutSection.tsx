@@ -37,7 +37,7 @@ export default function AboutSection() {
                 className="group rounded-full w-10 h-10 grid place-items-center text-white
                  bg-gradient-to-tr from-purple-500 via-pink-500 to-yellow-500
                  shadow hover:shadow-md transition"
-                title="@tu_usuario"
+                title="Instagram"
               >
                 <FaInstagram className="w-5 h-5" />
               </a>
