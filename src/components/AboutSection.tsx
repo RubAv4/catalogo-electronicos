@@ -57,7 +57,7 @@ export default function AboutSection() {
 
               {/* LinkedIn */}
               <a
-                href="https://www.linkedin.com/in/ruberth-j-avalos-gamez-05aa7a360"
+                href="https://www.linkedin.com/in/ruberth-avalos-gamez-05aa7a360/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
