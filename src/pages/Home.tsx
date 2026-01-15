@@ -579,6 +579,7 @@ export default function Home() {
       caracteristicas: [
         "Amplio propósito: este conjunto puede ser ampliamente utilizado en temporizador preciso, amplificador operacional dual, amplificador de audio, matriz Darlington, amplificador operacional de cuatro, PCB de pedal de sobrecarga de bajo, etc.",
         "Hecho fino: estos chips de circuito están bien hechos, los pines no son fáciles de doblar y se pueden realinear perfectamente.",
+        "NE555 LM324 LM393 UA741 ULN2803 LM358 LM386 NE5532 ULN2003 PC817 ",
         "Material: Metal",
       ],
       contacto: "51978394103",
