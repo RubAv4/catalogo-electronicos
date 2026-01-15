@@ -9,7 +9,8 @@ export type Categoria =
   | "BMS"
   | "Interruptores"
   | "PCB"
-  | "Reguladores";
+  | "Reguladores"
+  | "Circuitos Integrados";
 
 export type Producto = {
   id: number;

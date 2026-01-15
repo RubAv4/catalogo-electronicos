@@ -17,6 +17,7 @@ const CATEGORIES = [
   "Interruptores",
   "PCB",
   "Reguladores",
+  "Circuitos Integrados",
 ] as const;
 
 // URL fallback (por si no está definida la env VITE_AVAILABILITY_URL)
@@ -542,11 +543,12 @@ export default function Home() {
       contacto: "51978394103",
       disponible: true,
     },
-        {
+    {
       id: 29,
       nombre: "Módulo Boost Buck 20W elevador reductor voltaje simétrico ±30V",
       categoria: "Reguladores",
-      descripcion: "20w 5v 6v 9v 10v 12v 15v 24v positivo/negativo doble salida",
+      descripcion:
+        "20w 5v 6v 9v 10v 12v 15v 24v positivo/negativo doble salida",
       img: "https://www.grupoelectrostore.com/wp-content/uploads/2025/03/modazul4.jpg",
       imagenes: [
         "https://ae01.alicdn.com/kf/HTB1YJ9sXovrK1RjSspcq6zzSXXap.jpg",
@@ -558,6 +560,26 @@ export default function Home() {
         "Eficiencia de conversión: 69-88%",
         "Corriente de reposo: 3mA",
         "Convertidor Boost-Buck de 20W DC-DC frecuencia de trabajo 180KHZ.",
+      ],
+      contacto: "51978394103",
+      disponible: true,
+    },
+    {
+      id: 30,
+      nombre: "Surtido de Chips de Circuito Integrado IC Chips",
+      categoria: "Circuitos Integrados",
+      descripcion:
+        "IC Lógico de Baja Potencia",
+      img: "https://img.kwcdn.com/product/open/2024-05-30/1717063868946-f6aafcc26a0d462988f04f2502b73dbc-goods.jpeg?imageMogr2/auto-orient%7CimageView2/2/w/800/q/70/format/webpg",
+      imagenes: [
+        "https://img.kwcdn.com/product/fancy/704831d6-450d-461e-b716-2089eabf84f8.jpg?imageMogr2/auto-orient%7CimageView2/2/w/800/q/70/format/webp",
+        "https://i.ebayimg.com/images/g/qPoAAOSwredkJtnw/s-l1200.jpg",
+        "https://ae01.alicdn.com/kf/Sae4f627e61264b14aaf047fc76bcbdced.jpg",
+      ],
+      caracteristicas: [
+        "Amplio propósito: este conjunto puede ser ampliamente utilizado en temporizador preciso, amplificador operacional dual, amplificador de audio, matriz Darlington, amplificador operacional de cuatro, PCB de pedal de sobrecarga de bajo, etc.",
+        "Hecho fino: estos chips de circuito están bien hechos, los pines no son fáciles de doblar y se pueden realinear perfectamente.",
+        "Material: Metal",
       ],
       contacto: "51978394103",
       disponible: true,
