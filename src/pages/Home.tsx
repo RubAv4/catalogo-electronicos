@@ -522,6 +522,26 @@ export default function Home() {
       contacto: "51978394103",
       disponible: true,
     },
+    {
+      id: 28,
+      nombre: "Convertidor Voltaje DC-DC Step-Down 3A LM2596",
+      categoria: "Reguladores",
+      descripcion: "Reduce el voltaje de la forma más eficiente.",
+      img: "https://digitalcodesign.com/web/image/product.image/376/image_1024/Convertidor%20DC-DC%20LM2596%201%2C25-30V%203A%20Step-Down%20HW-411?unique=af1ac38",
+      imagenes: [
+        "https://store.roboticsbd.com/img/cms/1855.jpg",
+        "https://i0.wp.com/www.electronicsperu.com/wp-content/uploads/2024/06/S5197f3f9cc7b48f9a78ced1861dc08f3n-e1718060172943.webp?fit=1000%2C836&ssl=1",
+      ],
+      caracteristicas: [
+        "Convertidor DC-DC Buck: LM2596",
+        "Voltaje de entrada: 4.5V a 40V DC",
+        "Voltaje de salida: 1.23V a 37V DC",
+        "V. salida ajustable (el voltaje de entrada debe tener al menos 1.5V más que la salida).",
+        "Corriente de Salida: máx. 3A, 2.5A recomendado (usar disipador para corrientes mayores a 2A).",
+      ],
+      contacto: "51978394103",
+      disponible: true,
+    },
   ];
 
   // Copiamos a estado para poder aplicar disponibilidad desde JSON
