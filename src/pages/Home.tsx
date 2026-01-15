@@ -542,6 +542,26 @@ export default function Home() {
       contacto: "51978394103",
       disponible: true,
     },
+        {
+      id: 29,
+      nombre: "Módulo Boost Buck 20W elevador reductor voltaje simétrico ±30V",
+      categoria: "Reguladores",
+      descripcion: "20w 5v 6v 9v 10v 12v 15v 24v positivo/negativo doble salida",
+      img: "https://www.grupoelectrostore.com/wp-content/uploads/2025/03/modazul4.jpg",
+      imagenes: [
+        "https://ae01.alicdn.com/kf/HTB1YJ9sXovrK1RjSspcq6zzSXXap.jpg",
+        "https://s.alicdn.com/@sc04/kf/Hf240a97d0dd943cab43ba7a161acdb94j.png",
+      ],
+      caracteristicas: [
+        "Voltaje de entrada 3,6 ~ 30V, salida ± 3 ~ ± 30V ajustable",
+        "Potencia máxima de salida: 20W.",
+        "Eficiencia de conversión: 69-88%",
+        "Corriente de reposo: 3mA",
+        "Convertidor Boost-Buck de 20W DC-DC frecuencia de trabajo 180KHZ.",
+      ],
+      contacto: "51978394103",
+      disponible: true,
+    },
   ];
 
   // Copiamos a estado para poder aplicar disponibilidad desde JSON
