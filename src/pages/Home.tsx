@@ -568,8 +568,7 @@ export default function Home() {
       id: 30,
       nombre: "Surtido de Chips de Circuito Integrado IC Chips",
       categoria: "Circuitos Integrados",
-      descripcion:
-        "IC Lógico de Baja Potencia",
+      descripcion: "IC Lógico de Baja Potencia",
       img: "https://img.kwcdn.com/product/open/2024-05-30/1717063868946-f6aafcc26a0d462988f04f2502b73dbc-goods.jpeg?imageMogr2/auto-orient%7CimageView2/2/w/800/q/70/format/webpg",
       imagenes: [
         "https://img.kwcdn.com/product/fancy/704831d6-450d-461e-b716-2089eabf84f8.jpg?imageMogr2/auto-orient%7CimageView2/2/w/800/q/70/format/webp",
@@ -581,6 +580,25 @@ export default function Home() {
         "Hecho fino: estos chips de circuito están bien hechos, los pines no son fáciles de doblar y se pueden realinear perfectamente.",
         "NE555 LM324 LM393 UA741 ULN2803 LM358 LM386 NE5532 ULN2003 PC817 ",
         "Material: Metal",
+      ],
+      contacto: "51978394103",
+      disponible: true,
+    },
+    {
+      id: 31,
+      nombre: "Circuito protector de parlantes 2 canales",
+      categoria: "Módulos",
+      descripcion: "Protección de CC de retardo de arranque",
+      img: "https://ae01.alicdn.com/kf/S67074b825fd6441c92d53ee3b58e6b71T.jpg",
+      imagenes: [
+        "https://ae01.alicdn.com/kf/S6ba9ed1470aa47e2bfd17a7fe897e67b1.jpg",
+        "https://ae01.alicdn.com/kf/Sae3cdb4258d94b23a92a3d5f1eed87c3B.jpg",
+        "https://ae01.alicdn.com/kf/Sab77f0e6ab3c49a6aeb0eb9ce7823701o.jpg",
+        "https://ae01.alicdn.com/kf/Sf2446d81806c4dedb8460de2d3abeab6p.jpg",
+      ],
+      caracteristicas: [
+        "Voltaje de operación flexible : Placa de demora para altavoces con voltaje AC 12-16V, para uso eficiente.",
+        "Retraso de muestreo de 3-5 segundos de muestreo de CC de 1,2 V (retraso de 3-5 segundos).",
       ],
       contacto: "51978394103",
       disponible: true,
