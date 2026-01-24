@@ -159,7 +159,7 @@ export default function Header({
             <span className={iconWrap}>
               <UserIcon className="w-5 h-5" />
             </span>
-            <span className="flex-1 text-left">Sobre mi</span>
+            <span className="flex-1 text-left">Sobre mí</span>
           </button>
 
           {/* WhatsApp */}
