@@ -76,7 +76,7 @@ export default function Header({
             onClick={onAboutClick}
             className={pill(active === "sobre")}
           >
-            Sobre mi
+            Sobre mí
           </button>
           <a
             href="https://wa.me/51978394103"
