@@ -18,6 +18,7 @@ const CATEGORIES = [
   "PCB",
   "Reguladores",
   "Circuitos Integrados",
+  "Dimmer PWM",
 ] as const;
 
 // URL fallback (por si no está definida la env VITE_AVAILABILITY_URL)

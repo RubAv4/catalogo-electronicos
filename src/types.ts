@@ -10,7 +10,8 @@ export type Categoria =
   | "Interruptores"
   | "PCB"
   | "Reguladores"
-  | "Circuitos Integrados";
+  | "Circuitos Integrados"
+  | "Dimmer PWM";
 
 export type Producto = {
   id: number;
