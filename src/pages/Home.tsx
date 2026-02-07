@@ -604,6 +604,29 @@ export default function Home() {
       contacto: "51978394103",
       disponible: true,
     },
+        {
+      id: 32,
+      nombre: "Mini módulo controlador de velocidad del Motor DC-DC",
+      categoria: "Dimmer PWM",
+      descripcion: "regulador de velocidad ajustable Control interruptor",
+      img: "https://ae01.alicdn.com/kf/Se8eafeff69c14a2190dd0775f4202e2c2.png",
+      imagenes: [
+        "https://ae01.alicdn.com/kf/S662b9a5037474a8896eaf1e2c1884c72I.png",
+        "https://ae01.alicdn.com/kf/Sef15e24bbfb94f55a7805cf62e36fc05T.png",
+        "https://ae01.alicdn.com/kf/Se502abb593464d568dd5580ce101e4e9p.png",
+        "https://ae01.alicdn.com/kf/S686e0452cf974b73b009a188c5eb4baal.png",
+      ],
+      caracteristicas: [
+        "Voltaje de funcionamiento: DC4.5V-35V",
+        "Corriente de salida: 0-5A",
+        "Potencia de salida: 90W (máximo)",
+        "Corriente estática: 7uA (en espera)",
+        "Ciclo de trabajo PWM: 1% -100%",
+        "Frecuencia PWM: 20kHz",
+      ],
+      contacto: "51978394103",
+      disponible: true,
+    },
   ];
 
   // Copiamos a estado para poder aplicar disponibilidad desde JSON
