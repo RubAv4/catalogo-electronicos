@@ -1,3 +1,5 @@
+import React from "react";
+
 export const SearchIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" {...props}>
     <path

@@ -15,7 +15,9 @@ export default function ProductCard({ producto, onMore }: Props) {
       onClick={() => onMore(producto)}
       role="button"
       tabIndex={0}
-      onKeyDown={(e) => e.key === "Enter" && onMore(producto)}
+      onKeyDown={(e: React.KeyboardEvent) =>
+        e.key === "Enter" && onMore(producto)
+      }
       aria-label={`Ver detalles de ${nombre}`}
     >
       {/* Badge y velo si NO disponible */}
@@ -51,7 +53,7 @@ export default function ProductCard({ producto, onMore }: Props) {
                   ? "pointer-events-none opacity-50 cursor-not-allowed"
                   : ""
               }`}
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e: React.MouseEvent) => e.stopPropagation()}
             aria-disabled={!disponible}
             title={
               disponible ? "Contactar por WhatsApp" : "Producto no disponible"
@@ -61,7 +63,7 @@ export default function ProductCard({ producto, onMore }: Props) {
           </a>
           <button
             className="rounded-full bg-gray-100 px-4 py-2 text-sm font-medium hover:bg-gray-200"
-            onClick={(e) => {
+            onClick={(e: React.MouseEvent) => {
               e.stopPropagation();
               onMore(producto);
             }}
