@@ -1,9 +1,10 @@
 import {
-  FaInstagram,
   FaFacebookF,
+  FaInstagram,
   FaLinkedinIn,
   FaWhatsapp,
 } from "react-icons/fa";
+import { WHATSAPP_NUMBER } from "../config";
 
 export default function AboutSection() {
   return (
@@ -30,7 +31,7 @@ export default function AboutSection() {
             <div className="flex items-center gap-3">
               {/* Instagram */}
               <a
-                href="https://www.instagram.com/ru.aval/"
+                href="https://www.instagram.com/rua3.a/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -70,7 +71,7 @@ export default function AboutSection() {
 
               {/* WhatsApp */}
               <a
-                href="https://wa.me/51978394103"
+                href={`https://wa.me/${WHATSAPP_NUMBER}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"

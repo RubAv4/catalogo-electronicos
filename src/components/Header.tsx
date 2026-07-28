@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { WhatsIcon } from "./icons"; // <-- ajusta el path si es necesario
+import { WHATSAPP_NUMBER } from "../config";
 
 // Icono “grid” para Productos
 const GridIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -79,7 +80,7 @@ export default function Header({
             Sobre mí
           </button>
           <a
-            href="https://wa.me/51978394103"
+            href={`https://wa.me/${WHATSAPP_NUMBER}`}
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-full bg-green-500 hover:bg-green-600 px-4 py-2 text-sm font-medium"
@@ -164,7 +165,7 @@ export default function Header({
 
           {/* WhatsApp */}
           <a
-            href="https://wa.me/51978394103"
+            href={`https://wa.me/${WHATSAPP_NUMBER}`}
             target="_blank"
             rel="noopener noreferrer"
             className={`${itemBase} bg-green-600 hover:bg-green-600/90`}

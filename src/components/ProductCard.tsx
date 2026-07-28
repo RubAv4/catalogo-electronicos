@@ -1,4 +1,5 @@
 import type { Producto } from "../types";
+import { WHATSAPP_NUMBER } from "../config";
 
 type Props = {
   producto: Producto;
@@ -6,19 +7,13 @@ type Props = {
 };
 
 export default function ProductCard({ producto, onMore }: Props) {
-  const { nombre, descripcion, img, contacto = "51978394103" } = producto;
+  const { nombre, descripcion, img, contacto = WHATSAPP_NUMBER } = producto;
   const disponible = producto.disponible ?? true;
 
   return (
     <article
-      className="relative bg-white rounded-2xl shadow-sm ring-1 ring-black/5 overflow-hidden hover:shadow-md transition"
+      className="relative bg-white rounded-2xl shadow-sm ring-1 ring-black/5 overflow-hidden hover:shadow-md transition cursor-pointer"
       onClick={() => onMore(producto)}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e: React.KeyboardEvent) =>
-        e.key === "Enter" && onMore(producto)
-      }
-      aria-label={`Ver detalles de ${nombre}`}
     >
       {/* Badge y velo si NO disponible */}
       {!disponible && (
@@ -44,7 +39,7 @@ export default function ProductCard({ producto, onMore }: Props) {
 
         <div className="mt-4 flex items-center justify-between gap-2">
           <a
-            href={`https://wa.me/${contacto}`}
+            href={disponible ? `https://wa.me/${contacto}` : undefined}
             target="_blank"
             rel="noopener noreferrer"
             className={`rounded-full bg-black text-white px-5 py-2 text-sm font-medium hover:bg-gray-800
@@ -53,7 +48,11 @@ export default function ProductCard({ producto, onMore }: Props) {
                   ? "pointer-events-none opacity-50 cursor-not-allowed"
                   : ""
               }`}
-            onClick={(e: React.MouseEvent) => e.stopPropagation()}
+            onClick={(e: React.MouseEvent) => {
+              e.stopPropagation();
+              if (!disponible) e.preventDefault();
+            }}
+            tabIndex={disponible ? undefined : -1}
             aria-disabled={!disponible}
             title={
               disponible ? "Contactar por WhatsApp" : "Producto no disponible"

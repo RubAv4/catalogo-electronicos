@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import type { Producto } from "../types";
+import { WHATSAPP_NUMBER } from "../config";
 
 export default function ProductModal({
   producto,
@@ -136,7 +137,7 @@ export default function ProductModal({
             <div className="mt-6 flex flex-wrap gap-3">
               {disponible ? (
                 <a
-                  href={`https://wa.me/${producto.contacto ?? "51978394103"}`}
+                  href={`https://wa.me/${producto.contacto ?? WHATSAPP_NUMBER}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="rounded-full bg-black text-white px-5 py-2 text-sm font-medium hover:bg-gray-800"
